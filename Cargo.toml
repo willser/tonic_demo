@@ -7,3 +7,17 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# protoBuf
+prost = "0.7"
+# grpc
+tonic = {version="0.4.1",features = ["tls"]}
+# async
+tokio = {version="1.0",features = ["macros"]}
+# async-stream
+#tokio-stream = { version =  "0.1", features = ["net"] }
+# aysnc
+futures = "0.3"
+
+[build-dependencies]
+# build时执行
+tonic-build = "0.4.1"
