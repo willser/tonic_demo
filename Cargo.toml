@@ -4,20 +4,27 @@ version = "0.1.0"
 authors = ["will <64425242+willser@users.noreply.github.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name="hello_worl_server"
+path="src/server.rs"
+
+[[bin]]
+name="hello_worl_cilent"
+path="src/cilent.rs"
 
 [dependencies]
 # protoBuf
 prost = "0.7"
 # grpc
 tonic = {version="0.4.1",features = ["tls"]}
-# async
-tokio = {version="1.0",features = ["macros"]}
+# tokio add "rt-multi-thread" features to fix error: The default runtime flavor is `multi_thread`, but the `rt-multi-thread` feature is disabled.
+tokio = {version="1.0",features = ["macros","rt-multi-thread"]}
 # async-stream
 #tokio-stream = { version =  "0.1", features = ["net"] }
 # aysnc
 futures = "0.3"
 
 [build-dependencies]
-# build时执行
+# build时生成文件
 tonic-build = "0.4.1"
